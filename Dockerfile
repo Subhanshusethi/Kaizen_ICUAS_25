@@ -167,6 +167,16 @@ RUN rm $HOME/CrazySim/ros2_ws/src/crazyswarm2/crazyflie/scripts/crazyflie_server
 COPY to_copy/crazyflie_server.py $HOME/CrazySim/ros2_ws/src/crazyswarm2/crazyflie/scripts/
 RUN chmod +x $HOME/CrazySim/ros2_ws/src/crazyswarm2/crazyflie/scripts/crazyflie_server.py
 
+WORKDIR $HOME/CrazySim/ros2_ws
+# RUN rm $HOME/CrazySim/ros2_ws/src/crazyswarm2/crazyflie/scripts/crazyflie_server.py
+COPY to_copy/bfs_planner $HOME/CrazySim/ros2_ws/src/
+RUN colcon build --packages-select bfs_planner 
+
+WORKDIR $HOME/CrazySim/ros2_ws/src/crazyflie/scripts
+# RUN rm $HOME/CrazySim/ros2_ws/src/crazyswarm2/crazyflie/scripts/crazyflie_server.py
+COPY scripts/aruco.py $HOME/CrazySim/ros2_ws/src/crazyswarm2/crazyflie/scripts/
+RUN chmod +x $HOME/CrazySim/ros2_ws/src/crazyswarm2/crazyflie/scripts/aruco.py
+
 WORKDIR $HOME
 # Add alias for sourcing for ros2 and ros2 workspace
 RUN echo "alias ros2_ws='source $HOME/CrazySim/ros2_ws/install/setup.bash'" >> $HOME/.bashrc

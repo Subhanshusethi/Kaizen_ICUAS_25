@@ -15,5 +15,9 @@ windows:
       layout: tiled
       panes:
         - history -s "ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --remap cmd_vel:=/cf_1/cmd_vel"
+        - waitForCfGazebo;sleep 10;ros2 run bfs_planner uav_slice
+        - waitForCfGazebo;sleep 10;ros2 run bfs_planner astar_slice
+        - waitForCfGazebo;sleep 10;../scripts/./aruco.py
+        - waitForCfGazebo;sleep 10;ros2 run bfs_planner bfs_slice
 
  
