@@ -137,5 +137,9 @@ To launch the **City 1 world**:
   - **Ranger** — CLI file browser
   - **Htop** — system monitor
   - **VS Code Dev Containers** — continue using VS Code inside Docker.
+ 
+  ### Results 🏆
+  
+  <img width="819" height="591" alt="results" src="https://github.com/user-attachments/assets/37fea3b8-8381-476c-a2b1-d4204205fdc2" />
 
 ---
